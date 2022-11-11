@@ -4,32 +4,32 @@ This is a server API for ConCruise application where you can register yourself a
 
 ### To register yourself as a cruiser
 
-URL : https://concruisers.herokuapp.com/addCruiser
-METHOD : POST
+URL : https://concruisers.herokuapp.com/addCruiser <br>
+METHOD : POST <br>
 INPUT : {
 "name": "Gyan",
 "number": 956789865,
 "email": "gyan@gmail.com"
-}
+} <br>
 OUTPUT : {
 message: "Gyan has been register successfully",
 id: "636e78c0fb8b7426f569623b"
-}
+}<br>
 
-when you register then you will get your id as output please copy it because it will be needed when you add you customer.
+* when you register then you will get your id as output please copy it because it will be needed when you add you customer.
 
 ### To add customer
 
-Here in url you will use your cruiser id what you suppose to get while registering yourself.
+* Here in url you will use your cruiser id what you suppose to get while registering yourself.
 
-URL : https://concruisers.herokuapp.com/636e78c0fb8b7426f569623b/addCustomer
-METHOD : POST
+URL : https://concruisers.herokuapp.com/636e78c0fb8b7426f569623b/addCustomer <br>
+METHOD : POST <br>
 INPUT : {
 "name": "Mohit",
 "currentLocation": "Point A",
 "numberOfRides": 4,
 "averageRating": 5
-}
+} <br>
 OUTPUT : {
 "message": "Mohit has been added successfully",
 "id": "636e7b76fb8b7426f569623d"
@@ -37,8 +37,8 @@ OUTPUT : {
 
 ### To see all customers
 
-URL : https://concruisers.herokuapp.com/allCustomers
-METHOD : GET
+URL : https://concruisers.herokuapp.com/allCustomers <br>
+METHOD : GET <br>
 OUTPUT : [
 {
 "_id": "636e7b76fb8b7426f569623d",
@@ -58,14 +58,14 @@ OUTPUT : [
 "numberOfRides": 4,
 "cruiserName": "Gyan"
 }
-]
+] <br>
 
-here in output you will be able to see all customer who is added by any cruiser
+* here in output you will be able to see all customer who is added by any cruiser
 
 ### To see all cruisers
 
-URL : https://concruisers.herokuapp.com/allCruisers
-METHOD : GET
+URL : https://concruisers.herokuapp.com/allCruisers <br>
+METHOD : GET <br>
 OUPUT : [
 {
 "name": "Ram",
@@ -83,9 +83,9 @@ OUPUT : [
 
 ### To update customer information
 
-To update the customer infomation you need cruiserid and customer id.
+* To update the customer infomation you need cruiserid and customer id. <br>
 
-<!-- 
+<!--
     To find your cruiser id :-
     url : https://concruisers.herokuapp.com/getCruiserId
     method : post
@@ -100,9 +100,30 @@ To update the customer infomation you need cruiserid and customer id.
     "email": "gyan@gmail.com",
     "__v": 0
     }
-    ] 
+    ]
 
-    To find customer id you can use same url what we are using above for see all customers 
+    To find customer id you can use same url what we are using above for see all customers
 -->
 
-URL : 
+URL : https://concruisers.herokuapp.com/criserId/customerId/updateCustomer <br>
+
+- Insted of custmerId or cruiserId you have to write id's value <br> 
+  METHOD : update <br>
+  input : {
+  "averageRating":4,
+  "name":"Jonny"
+  } <br> 
+- The input is idealy you can change anything whatever input you have give at time od adding customer. <br> 
+  OUTPUT : {
+  "message": "Customer updated",
+  "updatedCusomer": {
+  "_id": "636e7b76fb8b7426f569623d",
+  "name": "Jonny",
+  "numberOfRides": 4,
+  "cruiserName": "Gyan"
+  }
+  }
+
+  ### To delete one or many customers 
+  
+  * To update the customer infomation you need cruiserid and customer id. <br>
