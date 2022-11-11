@@ -35,24 +35,54 @@ OUTPUT : {
 "id": "636e7b76fb8b7426f569623d"
 }
 
-### To see all cruisers
+### To see all customers
 
-URL : https://concruisers.herokuapp.com/allCruisers
+URL : https://concruisers.herokuapp.com/allCustomers
 METHOD : GET
 OUTPUT : [
 {
 "_id": "636e7b76fb8b7426f569623d",
 "name": "Mohit",
-"currentLocation": "String",
 "numberOfRides": 4,
-"averageRating": 2,
-"driver": "636d4c89598a662670f06035",
-"__v": 0
+"cruiserName": "Gyan"
+},
+{
+"_id": "636e800768fc5b0668de7785",
+"name": "Ramanuj",
+"numberOfRides": 4,
+"cruiserName": "Gyan"
+},
+{
+"_id": "636e820a67c0c3f24368dec3",
+"name": "Honey",
+"numberOfRides": 4,
+"cruiserName": "Gyan"
 }
 ]
 
 here in output you will be able to see all customer who is added by any cruiser
 
-### To see all customers
+### To see all cruisers
 
-URL : https://concruisers.herokuapp.com/allCustomers
+URL : https://concruisers.herokuapp.com/allCruisers
+METHOD : GET
+OUPUT : [
+{
+"name": "Ram",
+"number": 9879879870
+},
+{
+"name": "Harish",
+"number": 8768768769
+},
+{
+"name": "Anuj",
+"number": 9876987609
+}
+]
+
+### To update customer information
+
+To update the customer infomation you need cruiserid and customer id alse you have to save your customer id when you are regitering then you will get that 
+
+URL : 
