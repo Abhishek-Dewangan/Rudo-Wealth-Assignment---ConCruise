@@ -79,7 +79,11 @@ app.put('/:cruiserId/:customerId/updateCustomer', async (req, res) => {
     },
     updatedData
   );
-  const updatedCusomer = await CustomerModel.findById(customerId);
+  const updatedCusomer = await CustomerModel.findById(customerId, {
+    name: 1,
+    numberOfRides: 1,
+    cruiserName: 1,
+  });
   if (customer.modifiedCount) {
     res.status(201).send({ message: 'Customer updated', updatedCusomer });
   } else {

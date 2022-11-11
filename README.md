@@ -83,6 +83,26 @@ OUPUT : [
 
 ### To update customer information
 
-To update the customer infomation you need cruiserid and customer id alse you have to save your customer id when you are regitering then you will get that 
+To update the customer infomation you need cruiserid and customer id.
+
+<!-- 
+    To find your cruiser id :-
+    url : https://concruisers.herokuapp.com/getCruiserId
+    method : post
+    input : {
+    "email" :"gyan@gmail.com"
+    }
+    output : [
+    {
+    "_id": "636e78c0fb8b7426f569623b",
+    "name": "Gyan",
+    "number": 956789865,
+    "email": "gyan@gmail.com",
+    "__v": 0
+    }
+    ] 
+
+    To find customer id you can use same url what we are using above for see all customers 
+-->
 
 URL : 
