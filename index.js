@@ -15,13 +15,16 @@ app.get('/', (req, res) => {
 
 // To see all cruisers
 app.get('/allCruisers', async (req, res) => {
-  const cruisers = await CruiserModel.find();
+  const cruisers = await CruiserModel.find({}, { _id: 0, name: 1, number: 1 });
   res.status(200).send(cruisers);
 });
 
 // To see all customers
 app.get('/allCustomers', async (req, res) => {
-  const customers = await CustomerModel.find();
+  const customers = await CustomerModel.find(
+    {},
+    { name: 1, numberOfRides: 1, driverName: 1 }
+  );
   res.status(200).send(customers);
 });
 
@@ -34,12 +37,10 @@ app.post('/addCruiser', async (req, res) => {
   } else {
     const cruiser = new CruiserModel(body);
     cruiser.save();
-    res
-      .status(201)
-      .send({
-        message: `${cruiser.name} has been resister successfully`,
-        id: cruiser._id,
-      });
+    res.status(201).send({
+      message: `${cruiser.name} has been resister successfully`,
+      id: cruiser._id,
+    });
   }
 });
 
@@ -47,9 +48,17 @@ app.post('/addCruiser', async (req, res) => {
 app.post('/:cruiserId/addCustomer', async (req, res) => {
   const { cruiserId } = req.params;
   const body = req.body;
-  const customer = new CustomerModel({ ...body, driver: cruiserId });
+  const cruiser = await CruiserModel.findById(cruiserId);
+  const customer = new CustomerModel({
+    ...body,
+    driver: cruiserId,
+    driverName: cruiser.name,
+  });
   customer.save();
-  res.status(201).send(`${body.name} has been added successfully`);
+  res.status(201).send({
+    message: `${body.name} has been added successfully`,
+    id: customer._id,
+  });
 });
 
 // To update customer data by cruiser
