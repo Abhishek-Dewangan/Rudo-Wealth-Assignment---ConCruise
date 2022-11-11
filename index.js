@@ -45,7 +45,7 @@ app.post('/addCruiser', async (req, res) => {
 });
 
 // To get your customer id
-app.get('/getCruiserId', async (req, res) => {
+app.post('/getCruiserId', async (req, res) => {
   const cruiserEmail = req.body.email;
   const cruiser = await CruiserModel.find({ email: cruiserEmail });
   res.send(cruiser);
