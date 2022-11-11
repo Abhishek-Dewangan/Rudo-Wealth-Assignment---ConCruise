@@ -23,7 +23,7 @@ app.get('/allCruisers', async (req, res) => {
 app.get('/allCustomers', async (req, res) => {
   const customers = await CustomerModel.find(
     {},
-    { name: 1, numberOfRides: 1, driverName: 1 }
+    { name: 1, numberOfRides: 1, cruiserName: 1 }
   );
   res.status(200).send(customers);
 });
@@ -52,7 +52,7 @@ app.post('/:cruiserId/addCustomer', async (req, res) => {
   const customer = new CustomerModel({
     ...body,
     driver: cruiserId,
-    driverName: cruiser.name,
+    cruiserName: cruiser.name,
   });
   customer.save();
   res.status(201).send({

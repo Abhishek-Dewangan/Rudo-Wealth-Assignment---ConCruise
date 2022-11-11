@@ -6,6 +6,7 @@ const customerSchema = mongoose.Schema({
   numberOfRides: { type: Number, required: true },
   averageRating: { type: Number, required: true },
   driver: { type: String, required: true },
+  cruiserName: { type: String, required: true },
 });
 
 const CustomerModel = mongoose.model('custmer', customerSchema);
