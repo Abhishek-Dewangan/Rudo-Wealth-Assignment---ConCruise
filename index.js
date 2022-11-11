@@ -1,4 +1,3 @@
-const e = require('express');
 const express = require('express');
 const connection = require('./database');
 const { CruiserModel } = require('./model/cruisersModel');
@@ -35,7 +34,12 @@ app.post('/addCruiser', async (req, res) => {
   } else {
     const cruiser = new CruiserModel(body);
     cruiser.save();
-    res.status(201).send(`${cruiser.name} has been resister successfully`);
+    res
+      .status(201)
+      .send({
+        message: `${cruiser.name} has been resister successfully`,
+        id: cruiser._id,
+      });
   }
 });
 

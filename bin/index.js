@@ -1,4 +1,3 @@
-#! /usr/bin/env node
 const express = require('express');
 const connection = require('../database');
 require('dotenv').config();
