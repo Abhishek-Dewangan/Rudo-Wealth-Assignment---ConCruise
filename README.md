@@ -148,4 +148,4 @@ To update the customer infomation you need cruiserid and customer id's. <br>
 - METHOD : DELETE <br>
 - INPUT : {"customers":["customerId2","customerId2"]} <br>
   you can give multiple customers id at the same time or you can give single id also.<br>
-- UTPUT : Deleted Successfully
+- UTPUT : Deleted Successfully<br>
